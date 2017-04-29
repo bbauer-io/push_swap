@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
+/*   Updated: 2017/04/29 10:59:21 by bbauer           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -23,7 +34,6 @@ typedef struct	s_tracker
 	size_t			counter;
 	t_swap			*op_log;
 }				t_tracker;
-
 
 /*
 ** Control Sections
@@ -53,17 +63,17 @@ void			swap_a_top(t_swap **s1, t_swap **s2);
 ** integrate debug options.
 */
 
-void		pa(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		pb(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		sa(t_swap **sa, t_swap **sb,  t_tracker *tracker);
-void		sb(t_swap **sa, t_swap **sb,  t_tracker *tracker);
-void		ss(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		ra(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		rb(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		rr(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		rra(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		rrb(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void		rrr(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			pa(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			pb(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			sa(t_swap **sa, t_swap **sb,  t_tracker *tracker);
+void			sb(t_swap **sa, t_swap **sb,  t_tracker *tracker);
+void			ss(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			ra(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			rb(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			rr(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			rra(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			rrb(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			rrr(t_swap **sa, t_swap **sb, t_tracker *tracker);
 
 /*
 ** Debug / verbose option functions
