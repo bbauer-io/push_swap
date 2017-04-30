@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:41:48 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 10:48:57 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/04/29 19:32:01 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ void		rra(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	rotate_backward(sa);
 	tracker->counter++;
-	if (tracker->debug)
-	{
-		log_operation(RRA, tracker);
-		print_stacks(*sa, *sb, tracker);
-	}
-	else
-		ft_putstr("rra\n");
+	print_output(sa, sb, tracker);
 }
 
 /*
@@ -37,13 +31,7 @@ void		rrb(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	rotate_backward(sb);
 	tracker->counter++;
-	if (tracker->debug)
-	{
-		log_operation(RRB, tracker);
-		print_stacks(*sa, *sb, tracker);
-	}
-	else
-		ft_putstr("rrb\n");
+	print_output(sa, sb, tracker);
 }
 
 /*
@@ -56,11 +44,5 @@ void		rrr(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	rotate_backward(sa);
 	rotate_backward(sb);
 	tracker->counter++;
-	if (tracker->debug)
-	{
-		log_operation(RRR, tracker);
-		print_stacks(*sa, *sb, tracker);
-	}
-	else
-		ft_putstr("rrr\n");
+	print_output(sa, sb, tracker);
 }
