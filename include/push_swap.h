@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 10:59:21 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/04/29 19:38:34 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,15 @@ typedef struct	s_tracker
 */
 
 t_swap			*read_input(char **av, t_tracker *tracker);
+void			sort_stack(t_swap **sa, t_swap **sb, t_tracker *tracker);
 
 /*
 ** Tools
 */
 
 int				is_valid(char *arg);
+void			print_op_code(int code);
+void			print_output(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			stack_append(t_swap **stack, t_swap *to_add);
 int				stack_length(t_swap *stack);
 
@@ -65,8 +68,8 @@ void			swap_a_top(t_swap **s1, t_swap **s2);
 
 void			pa(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			pb(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void			sa(t_swap **sa, t_swap **sb,  t_tracker *tracker);
-void			sb(t_swap **sa, t_swap **sb,  t_tracker *tracker);
+void			sa(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			sb(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			ss(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			ra(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			rb(t_swap **sa, t_swap **sb, t_tracker *tracker);
@@ -81,6 +84,7 @@ void			rrr(t_swap **sa, t_swap **sb, t_tracker *tracker);
 
 void			print_stack(t_swap *stack);
 void			print_stacks(t_swap *sa, t_swap *sb, t_tracker *tracker);
+void			print_log(t_tracker *tracker);
 void			log_operation(int current_op, t_tracker *tracker);
 
 #endif

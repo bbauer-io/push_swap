@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 08:11:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 19:32:46 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/04/29 19:38:51 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** swaps the first two elements at the top of stack a
 */
 
-void		sa(t_swap **sa, t_swap **sb,  t_tracker *tracker)
+void		sa(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	flip_the_lid(sa);
 	tracker->counter++;
@@ -27,7 +27,7 @@ void		sa(t_swap **sa, t_swap **sb,  t_tracker *tracker)
 ** swaps the first two elements at the top of stack b
 */
 
-void		sb(t_swap **sa, t_swap **sb,  t_tracker *tracker)
+void		sb(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	flip_the_lid(sb);
 	tracker->counter++;
