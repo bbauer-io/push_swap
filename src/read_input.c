@@ -6,28 +6,76 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:07:33 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 10:31:45 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/04 16:24:20 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
+** A test to be sure the argument is not more than INT_MAX
+*/
+
+static int			overflows(char *arg)
+{
+	char	*arg_begin;
+
+	arg_begin = arg;
+	if (*arg == '-')
+		return (0);
+	if (*arg == '+')
+		arg++;
+	if (*arg > '2')
+		return (1);
+	else if (*arg == '2' && ft_atoi(arg) < 0)
+		return (1);
+	else
+		return (0);
+}
+
+/*
+** A test to be sure the argument is not less than INT_MIN
+*/
+
+static int			underflows(char *arg)
+{
+	char	*arg_begin;
+
+	arg_begin = arg;
+	if (*arg == '+')
+		return (0);
+	if (*arg == '-')
+		arg++;
+	if (*arg > '2')
+		return (1);
+	else if (*arg == '2' && ft_atoi(arg_begin) > 0)
+		return (1);
+	else
+		return (0);
+}
+
+/*
 ** Each argument should be an int that goes on the stack. This function checks
 ** that only a positive or negative int is in the argument and no other chars,
 ** and no misplaced chars. Returns a 1 if the argument is valid, 0 if not.
+** Also will check that the number won't overflow the int. (<9 digits or has-----
+**
 */
 
 static int			is_valid_input(char *arg)
 {
 	int		i;
+	char	*arg_begin;
 
-	if (*arg == '-')
+	arg_begin = arg;
+	if (*arg == '-' || *arg == '+')
 		arg++;
 	i = 0;
 	while (ft_isdigit(arg[i]))
 		i++;
-	if (i > 0 && arg[i] == '\0')
+	if (i > 0 && arg[i] == '\0' && i < 9)
+		return (1);
+	else if (i == 10 && !overflows(arg_begin) && !underflows(arg_begin))
 		return (1);
 	else
 		return (0);
