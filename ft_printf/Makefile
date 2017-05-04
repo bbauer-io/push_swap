@@ -6,19 +6,40 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/04 12:43:55 by bbauer           ###   ########.fr        #
+#    Updated: 2017/04/26 13:01:20 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = ft_printf.a
 CC = gcc
 LIBFT = ./libft/libft.a
-FT_PRINTF = ./ft_printf/ft_printf.a
 CFLAGS = -Wall -Wextra -Werror
-DEBUGFLAGS =  -fsanitize=address -g -o push_swap_debug
-LEAKCHECKFLAGS = -g -o push_swap_leakcheck
-SRCF = push_swap.c \
-	   read_input.c \
+DEBUGFLAGS =  -fsanitize=address -g -o ft_printf_debug
+LEAKCHECKFLAGS = -g -o ft_printf_leakcheck
+SRCF =	apply_precision.c \
+		apply_prefix.c \
+		apply_width.c \
+		apply_width_wchar.c \
+		fix_sign_placement.c \
+		ft_printf.c \
+		ft_vprintf.c \
+		read_flags.c \
+		read_length.c \
+		read_precision.c \
+		read_specifier.c \
+		read_width.c \
+		save_chars_printed.c \
+		verify_flag_compatibility.c \
+		verify_flag_compatibility_continued.c \
+		write_char.c \
+		write_conversion_substr.c \
+		write_hex.c \
+		write_octal.c \
+		write_signed_int.c \
+		write_string.c \
+		write_unsigned_int.c \
+		write_wchar.c \
+		write_wstring.c \
 
 SRC = $(addprefix $(SRCDIR),$(SRCF))
 OBJ = $(addprefix $(OBJDIR),$(SRCF:.c=.o))
@@ -26,49 +47,43 @@ OBJ = $(addprefix $(OBJDIR),$(SRCF:.c=.o))
 OBJDIR = ./obj/
 SRCDIR = ./src/
 LIBDIR = ./libft/
-FTPFDIR = ./ft_printf/
 INCDIR = ./include/
 
-.PHONY: $(NAME), all, clean, fclean, re, $(LIBFT)
+.PHONY: all, clean, fclean, re
 
-all: $(LIBFT) $(FT_PRINTF) $(NAME)
+all: $(LIBFT) $(NAME)
 
-$(NAME): $(LIBFT) $(FT_PRINTF)
-	@echo "Compiling push_swap"
+$(NAME): $(LIBFT)
+	@echo "Compiling ft_printf"
 	@$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
+	@ar rc $(NAME) $(OJB) $(LIBFT) $(FLAGS)
 	@mkdir -p $(OBJDIR)
 	@mv $(SRCF:.c=.o) $(OBJDIR)
-	@$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBDIR) $(OBJ) $(LIBFT) $(FT_PRINTF) -o $@
-	@echo "push_swap: SUCCESS!"
+	@echo "ft_printf: SUCCESS!"
 
 $(LIBFT):
 	@make -C $(LIBDIR) all
 
-$(FT_PRINTF):
-	@make -C $(FTPFDIR) all
-
 clean:
-	@echo "Cleaning push_swap"
+	@echo "Cleaning ft_printf"
 	@rm -rf $(OBJDIR)
-	@rm -rf push_swap_debug
-	@rm -rf push_swap_debug.dSYM
-	@rm -rf push_swap_leakcheck
-	@rm -rf push_swap_leakcheck.dSYM
+	@rm -rf ft_printf_debug
+	@rm -rf ft_printf_debug.dSYM
+	@rm -rf ft_printf_leakcheck
+	@rm -rf ft_printf_leakcheck.dSYM
 	@make -C $(LIBDIR) clean
-	@make -C $(FTPFDIR) clean
 
 fclean: clean
-	@echo "FCleaning push_swap"
+	@echo "FCleaning ft_printf"
 	@rm -rf $(NAME)
 	@make -C $(LIBDIR) fclean
-	@make -C $(FTPFDIR) fclean
 
 re: fclean all
 
 debug: $(LIBFT)
-	@echo "Compiling push_swap with debugging options"
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS)
+	@echo "Compiling ft_printf with debugging options"
+	$(CC) $(SRC) ./tests/$(TEST) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS)
 
 leakcheck: $(LIBFT)
-	@echo "Compiling push_swap for leak checks with valgrind"
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS)
+	@echo "Compiling ft_printf for leak checks with valgrind"
+	$(CC) $(SRC) ./tests/$(TEST) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS)
