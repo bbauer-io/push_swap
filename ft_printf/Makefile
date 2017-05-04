@@ -6,13 +6,13 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/04/26 13:01:20 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/04 12:48:52 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_printf.a
 CC = gcc
-LIBFT = ./libft/libft.a
+LIBFT = ./../libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
 DEBUGFLAGS =  -fsanitize=address -g -o ft_printf_debug
 LEAKCHECKFLAGS = -g -o ft_printf_leakcheck
@@ -46,7 +46,7 @@ OBJ = $(addprefix $(OBJDIR),$(SRCF:.c=.o))
 
 OBJDIR = ./obj/
 SRCDIR = ./src/
-LIBDIR = ./libft/
+LIBDIR = ./../libft/
 INCDIR = ./include/
 
 .PHONY: all, clean, fclean, re
