@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/04 12:44:50 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/05 15:05:54 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,23 @@ typedef enum	e_operation
 typedef struct	s_swap
 {
 	int				value;
+	int				mov_req_for;
+	int				mov_req_bak;
+	int				sb_req_for;
+	int				sb_req_bak;
+	int				moves_req;
+	int				best_path_code;
 	s_swap			*next;
 }				t_swap;
 
 typedef struct	s_tracker
 {
 	t_operation		current_operation;
+	int				a_height;
+	int				b_height;
 	int				debug;
 	int				color;
+	int				input_cnt;
 	size_t			counter;
 	t_swap			*op_log;
 }				t_tracker;
@@ -42,6 +51,10 @@ typedef struct	s_tracker
 
 t_swap			*read_input(char **av, t_tracker *tracker);
 void			sort_stack(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			calculate_possible_moves(t_swap *sa, t_swap *sb,
+													t_tracker *tracker);
+t_swap			*find_best_candidate(t_swap *sa);
+t_operation		*build_instructions(t_swap *best_candidate);
 
 /*
 ** Tools

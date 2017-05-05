@@ -6,7 +6,7 @@
 /*   By: bbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 11:53:06 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/25 12:20:02 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/05 14:57:33 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 # define BUFF_SIZE 1024
 # define N_ELEMS(A) (sizeof(A) / sizeof((A)[0])
+# define MAX(A, B) (((A) > (B)) ? (A) : (B))
+# define MIN(A, B) (((A) < (B)) ? (A) : (B))
+# define ABS(A) ((A) < 0 ? -(A) : (A))
 
 typedef struct		s_list
 {
@@ -189,5 +192,11 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 int					ft_lst_len(t_list *begin_list);
 size_t				ft_lst_free_contents(void *content, size_t content_size);
+
+/*
+** Array functions.
+*/
+
+int					ft_smallest_int(int *arr, int size);
 
 #endif
