@@ -14,11 +14,11 @@
 
 static int	calc_shortest_possible_route(t_swap *sa)
 {
-	int		try[5];
+	int		try[4];
 
 	ft_bzero(try, sizeof(int) * 5);
-	try[0] = ABS(sa->mov_req_for - sa->sb_req_for) + 1;
-	try[1] = ABS(sa->mov_req_bak - sa->sb_req_bak) + 1;
+	try[0] = MAX(sa->mov_req_for, sa->sb_req_for) + 1;
+	try[1] = MAX(sa->mov_req_bak, sa->sb_req_bak) + 1;
 	try[2] = sa->mov_req_for + sa->sb_req_bak + 1;
 	try[3] = sa->mov_req_bak + sa->sb_req_for + 1;
 	sa->best_path_code = ft_smallest_int(try, 4);
