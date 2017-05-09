@@ -54,7 +54,7 @@ void			sort_stack(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			calculate_possible_moves(t_swap *sa, t_swap *sb,
 													t_tracker *tracker);
 t_swap			*find_best_candidate(t_swap *sa);
-t_operation		*build_instructions(t_swap *best_candidate);
+t_operation		*build_instructions(t_swap *best_candidate, t_operation *ops);
 
 /*
 ** Tools
