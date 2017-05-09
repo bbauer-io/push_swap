@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/04 12:43:55 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/09 15:07:23 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,22 @@ FT_PRINTF = ./ft_printf/ft_printf.a
 CFLAGS = -Wall -Wextra -Werror
 DEBUGFLAGS =  -fsanitize=address -g -o push_swap_debug
 LEAKCHECKFLAGS = -g -o push_swap_leakcheck
-SRCF = push_swap.c \
-	   read_input.c \
+SRCF = basic_operations.c \
+		build_instructions.c \
+		calculate_possible_moves.c \
+		crappy_temp_print_stack.c \
+		debug_log_operations.c \
+		debug_print_stacks.c \
+		find_best_candidate.c \
+		ops_push.c \
+		ops_rev_rotate.c \
+		ops_rotate.c \
+		ops_swap.c \
+		print_output.c \
+		push_swap_main.c \
+		read_input.c \
+		sort_stacks.c \
+		stack_tools.c \
 
 SRC = $(addprefix $(SRCDIR),$(SRCF))
 OBJ = $(addprefix $(OBJDIR),$(SRCF:.c=.o))
@@ -50,16 +64,16 @@ $(FT_PRINTF):
 clean:
 	@echo "Cleaning push_swap"
 	@rm -rf $(OBJDIR)
-	@rm -rf push_swap_debug
+	@rm -f push_swap_debug
 	@rm -rf push_swap_debug.dSYM
-	@rm -rf push_swap_leakcheck
+	@rm -f push_swap_leakcheck
 	@rm -rf push_swap_leakcheck.dSYM
 	@make -C $(LIBDIR) clean
 	@make -C $(FTPFDIR) clean
 
 fclean: clean
 	@echo "FCleaning push_swap"
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 	@make -C $(LIBDIR) fclean
 	@make -C $(FTPFDIR) fclean
 
@@ -72,3 +86,4 @@ debug: $(LIBFT)
 leakcheck: $(LIBFT)
 	@echo "Compiling push_swap for leak checks with valgrind"
 	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS)
+
