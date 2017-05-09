@@ -20,6 +20,7 @@ void		ra(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	rotate_forward(sa);
 	tracker->counter++;
+	tracker->current_operation = RA;
 	print_output(sa, sb, tracker);
 }
 
@@ -31,6 +32,7 @@ void		rb(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	rotate_forward(sb);
 	tracker->counter++;
+	tracker->current_operation = RB;
 	print_output(sa, sb, tracker);
 }
 
@@ -44,5 +46,6 @@ void		rr(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	rotate_forward(sa);
 	rotate_forward(sb);
 	tracker->counter++;
+	tracker->current_operation = RR;
 	print_output(sa, sb, tracker);
 }

@@ -74,9 +74,9 @@ int				is_sorted(t_swap *stack)
 	stack = stack->next;
 	while (stack)
 	{
-		prev_val = stack->value;
 		if (prev_val >= stack->value)
 			return (0);
+		prev_val = stack->value;
 		stack = stack->next;
 	}
 	return (1);
@@ -96,7 +96,7 @@ void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	{
 		calculate_possible_moves(*sa, *sb, tracker);
 		best_candidate = find_best_candidate(*sa);
-		instructions = build_instructions(best_candidate);
+		instructions = build_instructions(best_candidate, instructions);
 		i = 0;
 		while (instructions && instructions[i])
 			execute_instruction(sa, sb, tracker, instructions[i++]);

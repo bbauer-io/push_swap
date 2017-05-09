@@ -44,11 +44,13 @@ int			stack_length(t_swap *stack)
 
 	i = 0;
 	if (stack)
-		i++;
-	while(stack->next)
 	{
-		stack = stack->next;
 		i++;
+		while(stack->next)
+		{
+			stack = stack->next;
+			i++;
+		}
 	}
 	return (i);
 }

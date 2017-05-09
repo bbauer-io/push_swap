@@ -97,12 +97,15 @@ static int			is_option(char *arg, t_tracker *tracker)
 		while (ft_isalpha(arg[++i]))
 			if (arg[i] != 'v' && arg[i] != 'c')
 				return (0);
+		if (ft_isdigit(arg[i]))
+			return (0);
 		if (ft_strchr(arg, 'v'))
 			tracker->debug = 1;
 		if (ft_strchr(arg, 'c'))
 			tracker->color = 1;
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 /*
@@ -110,7 +113,7 @@ static int			is_option(char *arg, t_tracker *tracker)
 ** list which will represent our stack.
 */
 
-t_swap				*read_input_stack(char **av, t_tracker *tracker)
+t_swap				*read_input(char **av, t_tracker *tracker)
 {
 	t_swap		*sa;
 	t_swap		*item;

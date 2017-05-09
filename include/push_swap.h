@@ -30,7 +30,7 @@ typedef struct	s_swap
 	int				sb_req_bak;
 	int				moves_req;
 	int				best_path_code;
-	s_swap			*next;
+	struct s_swap	*next;
 }				t_swap;
 
 typedef struct	s_tracker
@@ -50,7 +50,7 @@ typedef struct	s_tracker
 */
 
 t_swap			*read_input(char **av, t_tracker *tracker);
-void			sort_stack(t_swap **sa, t_swap **sb, t_tracker *tracker);
+void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			calculate_possible_moves(t_swap *sa, t_swap *sb,
 													t_tracker *tracker);
 t_swap			*find_best_candidate(t_swap *sa);

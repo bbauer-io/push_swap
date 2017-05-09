@@ -16,6 +16,7 @@ void		pa(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	swap_a_top(sa, sb);
 	tracker->counter++;
+	tracker->current_operation = PA;
 	print_output(sa, sb, tracker);
 }
 
@@ -23,5 +24,6 @@ void		pb(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	swap_a_top(sb, sa);
 	tracker->counter++;
+	tracker->current_operation = PB;
 	print_output(sa, sb, tracker);
 }

@@ -23,6 +23,7 @@ int		ft_smallest_int(int *arr, int size)
 	int		i;
 
 	smallest = arr[0];
+	sm_index = 0;
 	i = 1;
 	while (i < size)
 	{
@@ -33,5 +34,5 @@ int		ft_smallest_int(int *arr, int size)
 		}
 		i++;
 	}
-	return (i);
+	return (sm_index);
 }

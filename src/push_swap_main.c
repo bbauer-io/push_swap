@@ -23,7 +23,7 @@ int			main(int argc, char **argv)
 	{
 		sa = read_input(++argv, &tracker);
 		print_stack(sa);
-		sort_stack(&sa, &sb, &tracker);
+		sort_stacks(&sa, &sb, &tracker);
 		if (tracker.debug)
 			print_log(&tracker);
 	}

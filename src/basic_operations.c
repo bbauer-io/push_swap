@@ -24,11 +24,9 @@ void		flip_the_lid(t_swap **stack)
 
 	if (stack_length(*stack) < 2)
 		return ;
-
 	a = *stack;
 	b = (*stack)->next;
 	c = (*stack)->next->next;
-
 	*stack = b;
 	(*stack)->next = a;
 	(*stack)->next->next = c;

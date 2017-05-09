@@ -20,6 +20,7 @@ void		sa(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	flip_the_lid(sa);
 	tracker->counter++;
+	tracker->current_operation = SA;
 	print_output(sa, sb, tracker);
 }
 
@@ -31,6 +32,7 @@ void		sb(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	flip_the_lid(sb);
 	tracker->counter++;
+	tracker->current_operation = SB;
 	print_output(sa, sb, tracker);
 }
 
@@ -43,5 +45,6 @@ void		ss(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	flip_the_lid(sa);
 	flip_the_lid(sb);
 	tracker->counter++;
+	tracker->current_operation = SS;
 	print_output(sa, sb, tracker);
 }

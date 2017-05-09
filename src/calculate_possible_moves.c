@@ -51,7 +51,8 @@ static int	find_sb_target_depth(int value, t_swap *sb, int *b_arr)
 	int		before;
 	int		after;
 
-	find_next_and_prev(value, &before, &after, b_arr);
+	if (b_arr)
+		find_next_and_prev(value, &before, &after, b_arr);
 	target_depth = 0;
 	while (sb)
 	{
@@ -113,17 +114,18 @@ static int	*create_b_value_array(t_swap *stack, t_tracker *tracker)
 	if (!stack)
 		return (NULL);
 	ft_bzero(&b_val_arr, (sizeof(int) * tracker->b_height + 1));
+	i = 0;
 	lg_index = 0;
 	largest = stack->value;
 	stack_begin = stack;
 	while (stack)
 	{
+		i++;
 		if (stack->value > largest)
 		{
 			largest = stack->value;
 			lg_index = i;
 		}
-		i++;
 		stack = stack->next;
 	}
 	return (b_val_arr = populate_b_vals(stack_begin, lg_index, tracker));
