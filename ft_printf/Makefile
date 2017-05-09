@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/09 15:05:20 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/09 15:10:12 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,10 +55,10 @@ all: $(LIBFT) $(NAME)
 
 $(NAME): $(LIBFT)
 	@echo "Compiling ft_printf"
-	$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
-	mkdir -p $(OBJDIR)
-	mv $(SRCF:.c=.o) $(OBJDIR)
-	ar rc $(NAME) $(OBJ) $(LIBFT)
+	@$(CC) $(CFLAGS) -c -I$(INCDIR) $(SRC)
+	@mkdir -p $(OBJDIR)
+	@mv $(SRCF:.c=.o) $(OBJDIR)
+	@ar rc $(NAME) $(OBJ) $(LIBFT)
 	@echo "ft_printf: SUCCESS!"
 
 $(LIBFT):

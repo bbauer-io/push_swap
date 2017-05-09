@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/09 15:07:23 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/09 15:12:11 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ $(NAME): $(LIBFT) $(FT_PRINTF)
 $(LIBFT):
 	@make -C $(LIBDIR) all
 
-$(FT_PRINTF):
+$(FT_PRINTF): $(LIBFT)
 	@make -C $(FTPFDIR) all
 
 clean:
@@ -79,11 +79,11 @@ fclean: clean
 
 re: fclean all
 
-debug: $(LIBFT)
+debug: $(LIBFT) $(FT_PRINTF)
 	@echo "Compiling push_swap with debugging options"
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS)
+	$(CC) $(CFLAGS) $(SRC) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS)
 
-leakcheck: $(LIBFT)
+leakcheck: $(LIBFT) $(FT_PRINTF)
 	@echo "Compiling push_swap for leak checks with valgrind"
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS)
+	$(CC) $(CFLAGS) $(SRC) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS)
 
