@@ -24,6 +24,7 @@ SRCF = arg_string_splitter.c \
 		crappy_temp_print_stack.c \
 		debug_log_operations.c \
 		debug_print_stacks.c \
+		duplicate_input_check.c \
 		find_best_candidate.c \
 		ops_push.c \
 		ops_rev_rotate.c \

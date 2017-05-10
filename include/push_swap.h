@@ -61,6 +61,7 @@ t_operation		*build_instructions(t_swap *best_candidate, t_operation *ops);
 */
 
 char			**arg_string_splitter(char **argv);
+int				has_duplicate_inputs(t_swap *stack);
 int				is_valid(char *arg);
 void			print_op_code(int code);
 void			print_output(t_swap **sa, t_swap **sb, t_tracker *tracker);

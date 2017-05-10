@@ -26,12 +26,15 @@ int			main(int argc, char **argv)
 			sa = read_input(alt_argv, &tracker);
 		else
 			sa = read_input(argv, &tracker);
-		print_stack(sa);
-		sort_stacks(&sa, &sb, &tracker);
-		if (tracker.debug)
-			print_log(&tracker);
-		if (alt_argv)
-			ft_tab_del(&alt_argv);
+		if (!has_duplicate_inputs(sa))
+		{
+			print_stack(sa);
+			sort_stacks(&sa, &sb, &tracker);
+			if (tracker.debug)
+				print_log(&tracker);
+			if (alt_argv)
+				ft_tab_del(&alt_argv);
+		}
 	}
 	return (0);
 }

@@ -78,7 +78,10 @@ static int			is_valid_input(char *arg)
 	else if (i == 10 && !overflows(arg_begin) && !underflows(arg_begin))
 		return (1);
 	else
+	{
+		ft_putstr("Error\n");
 		return (0);
+	}
 }
 
 /*
