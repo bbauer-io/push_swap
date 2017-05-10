@@ -60,6 +60,7 @@ void		rotate_forward(t_swap **stack)
 	t_swap		*iter;
 
 	if (stack_length(*stack) < 2)
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	iter = *stack;

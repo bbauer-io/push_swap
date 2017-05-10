@@ -48,7 +48,7 @@ void		print_output(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	if (tracker->debug)
 	{
-		log_operation(RA, tracker);
+		log_operation(tracker->current_operation, tracker);
 		print_stacks(*sa, *sb, tracker);
 	}
 	else
