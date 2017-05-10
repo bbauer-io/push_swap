@@ -49,7 +49,7 @@ static void		complete_sort(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	t_operation		*ops;
 	int				i;
 
-	ops = (t_operation *)malloc(sizeof(t_operation) * tracker->input_cnt + 1);
+	ops = (t_operation *)malloc(sizeof(t_operation) * (tracker->input_cnt + 1));
 	i = 0;
 	while (i < tracker->input_cnt)
 		ops[i++] = PA;
@@ -92,7 +92,9 @@ void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	t_operation		*instructions;
 	int				i;
 
-	while (*sa && !is_sorted(*sa))
+	if (is_sorted(*sa))
+		return ;
+	while (*sa)
 	{
 		calculate_possible_moves(*sa, *sb, tracker);
 		best_candidate = find_best_candidate(*sa);
@@ -101,7 +103,13 @@ void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker)
 		while (instructions && instructions[i])
 			execute_instruction(sa, sb, tracker, instructions[i++]);
 		free(instructions);
-		if (!*sa)
-			complete_sort(sa, sb, tracker);
 	}
+	if (!*sa || is_sorted(*sa))
+		complete_sort(sa, sb, tracker);
+	else
+		ft_putstr("error! sort_stacks() failed! :(\n");
+	if (!is_sorted(*sa))
+		ft_putstr("write a better algorithm you fucking amateur >:(\n");
+	else
+		ft_putstr("sorted!");
 }

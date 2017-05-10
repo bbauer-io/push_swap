@@ -77,7 +77,7 @@ static int	*populate_b_vals(t_swap *stack, int start, int *b_val_arr)
 
 	i = 0;
 	stack_begin = stack;
-	while (i < start)
+	while (i++ < start)
 		stack = stack->next;
 	k = 0;
 	while (stack)
@@ -150,7 +150,7 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 		sa->mov_req_bak = tracker->a_height - a_cur_depth;
 		b_target_depth = find_sb_target_depth(sa->value, sb, b_vals_in_order);
 		sa->sb_req_for = b_target_depth;
-		sa->sb_req_bak = b_target_depth - tracker->b_height;
+		sa->sb_req_bak = tracker->b_height - b_target_depth;
 		sa = sa->next;
 		a_cur_depth++;
 	}
