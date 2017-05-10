@@ -92,7 +92,7 @@ static int			is_option(char *arg, t_tracker *tracker)
 	int			i;
 
 	i = 0;
-	if (arg[i] == '-')
+	if (arg && arg[i] == '-')
 	{
 		while (ft_isalpha(arg[++i]))
 			if (arg[i] != 'v' && arg[i] != 'c')
@@ -127,14 +127,17 @@ t_swap				*read_input(char **av, t_tracker *tracker)
 	sa->value = ft_atoi(*av);
 	while (*(++av))
 	{
-		while (is_option(*av, tracker))
-			++av;
-		if (!is_valid_input(*av))
+		if (is_option(*av, tracker))
+			;
+		else if (!is_valid_input(*av))
 			return (NULL);
-		item = (t_swap *)malloc(sizeof(t_swap));
-		ft_bzero(item, sizeof(t_swap));
-		item->value = ft_atoi(*av);
-		stack_append(&sa, item);
+		else
+		{
+			item = (t_swap *)malloc(sizeof(t_swap));
+			ft_bzero(item, sizeof(t_swap));
+			item->value = ft_atoi(*av);
+			stack_append(&sa, item);
+		}
 	}
 	tracker->input_cnt = stack_length(sa);
 	return (sa);

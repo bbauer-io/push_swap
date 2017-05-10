@@ -21,7 +21,7 @@ int			ft_tab_len(char **tab)
 	int		i;
 
 	i = 0;
-	while (tab && tab[i++])
-		;
+	while (tab && tab[i])
+		i++;
 	return (i);
 }

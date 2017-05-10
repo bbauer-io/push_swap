@@ -12,28 +12,38 @@
 
 #include "../include/push_swap.h"
 
-char		**arg_string_splitter(char **argv)
+static char		**build_alt_argv(char **argv, int import_index, int av_len)
+{
+	char	**alt_argv;
+	char	**tmp;
+	int		i;
+
+	alt_argv = ft_strtok(argv[import_index], " ");
+	i = 0;
+	while (i < av_len && argv[i])
+	{
+		if (i != import_index)
+		{
+			tmp = ft_tab_add_one(alt_argv, argv[i]);
+			free(alt_argv);
+			alt_argv = tmp;
+		}
+		i++;
+	}
+	return (alt_argv);
+}
+
+char			**arg_string_splitter(char **argv)
 {
 	int		i;
-	char	**alt_argv;
 	int		av_len;
-	int		imported_index;
 
 	av_len = ft_tab_len(argv);
-	alt_argv = NULL;
 	i = 0;
-	while (argv && argv[i] && !alt_argv)
+	while (argv && argv[i])
 	{
 		if (ft_strchr(argv[i], ' '))
-		{
-			alt_argv = ft_strtok(argv[i], " ");
-			imported_index = i;
-			i = -1;
-			while (++i < av_len)
-				if (i != imported_index)
-					ft_tab_add_one(alt_argv, argv[i]);
-			return (alt_argv);
-		}
+			return (build_alt_argv(argv, i, av_len));
 		i++;
 	}
 	return (NULL);
