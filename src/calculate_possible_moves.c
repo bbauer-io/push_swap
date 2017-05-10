@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/05 13:56:29 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/09 17:05:52 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,12 @@ static int	find_sb_target_depth(int value, t_swap *sb, int *b_arr)
 ** the values to the newly created array.
 */
 
-static int	*populate_b_vals(t_swap *stack, int start, t_tracker *tracker)
+static int	*populate_b_vals(t_swap *stack, int start, int *b_val_arr)
 {
-	int		*b_val_arr;
 	t_swap	*stack_begin;
 	int		i;
 	int		k;
 
-	if (!(b_val_arr = (int *)malloc(sizeof(int) * (tracker->b_height + 1))))
-		return (NULL);
 	i = 0;
 	stack_begin = stack;
 	while (i < start)
@@ -103,17 +100,18 @@ static int	*populate_b_vals(t_swap *stack, int start, t_tracker *tracker)
 ** search for the location to insert our next possible operation.
 */
 
-static int	*create_b_value_array(t_swap *stack, t_tracker *tracker)
+static int	*create_b_value_array(t_swap *stack, t_tracker *tracker,
+																int **b_val_arr)
 {
 	t_swap	*stack_begin;
 	int		i;
 	int		lg_index;
 	int		largest;
-	int		*b_val_arr;
 
-	if (!stack)
+	if (!stack ||
+		!(*b_val_arr = (int *)malloc(sizeof(int) * (tracker->b_height + 1))))
 		return (NULL);
-	ft_bzero(&b_val_arr, (sizeof(int) * tracker->b_height + 1));
+	ft_bzero(*b_val_arr, (sizeof(int) * (tracker->b_height + 1)));
 	i = 0;
 	lg_index = 0;
 	largest = stack->value;
@@ -128,7 +126,7 @@ static int	*create_b_value_array(t_swap *stack, t_tracker *tracker)
 		}
 		stack = stack->next;
 	}
-	return (b_val_arr = populate_b_vals(stack_begin, lg_index, tracker));
+	return (populate_b_vals(stack_begin, lg_index, *b_val_arr));
 }
 
 /*
@@ -145,7 +143,7 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 	a_cur_depth = 0;
 	tracker->a_height = stack_length(sa);
 	tracker->b_height = stack_length(sb);
-	b_vals_in_order = create_b_value_array(sb, tracker);
+	b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
 	while (sa)
 	{
 		sa->mov_req_for = a_cur_depth;

@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/09 15:12:11 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/09 15:37:22 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FT_PRINTF = ./ft_printf/ft_printf.a
 CFLAGS = -Wall -Wextra -Werror
 DEBUGFLAGS =  -fsanitize=address -g -o push_swap_debug
 LEAKCHECKFLAGS = -g -o push_swap_leakcheck
-SRCF = basic_operations.c \
+SRCF = arg_string_splitter.c \
+		basic_operations.c \
 		build_instructions.c \
 		calculate_possible_moves.c \
 		crappy_temp_print_stack.c \

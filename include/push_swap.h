@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/05 15:05:54 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/09 15:28:54 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_operation		*build_instructions(t_swap *best_candidate, t_operation *ops);
 ** Tools
 */
 
+char			**arg_string_splitter(char **argv);
 int				is_valid(char *arg);
 void			print_op_code(int code);
 void			print_output(t_swap **sa, t_swap **sb, t_tracker *tracker);

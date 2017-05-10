@@ -6,7 +6,7 @@
 /*   By: bbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 11:53:06 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/05 14:57:33 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/09 15:33:53 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ char				**ft_tab_add_one(char **src_tab, char *new_item);
 void				ft_tab_cat(char **dst, char **src);
 void				ft_tab_del(char ***tab);
 char				**ft_tab_dup(char **tab);
+int					ft_tab_len(char **tab);
 void				ft_tab_ncat(char **dst, char **src, size_t n);
 char				**ft_tab_new(size_t tab_len);
 char				**ft_tab_rem_one(char **src, size_t rem);
