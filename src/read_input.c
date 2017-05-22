@@ -67,6 +67,8 @@ static int			is_valid_input(char *arg)
 	int		i;
 	char	*arg_begin;
 
+	if (!arg)
+		return (0);
 	arg_begin = arg;
 	if (*arg == '-' || *arg == '+')
 		arg++;
