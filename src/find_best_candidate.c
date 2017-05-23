@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 14:14:11 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/09 17:25:37 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 10:04:46 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int	calc_shortest_possible_route(t_swap *sa)
 {
-	int		try[4];
+	int		attempt[4];
 
-	ft_bzero(try, sizeof(int) * 4);
-	try[0] = MAX(sa->mov_req_for, sa->sb_req_for) + 1;
-	try[1] = MAX(sa->mov_req_bak, sa->sb_req_bak) + 1;
-	try[2] = sa->mov_req_for + sa->sb_req_bak + 1;
-	try[3] = sa->mov_req_bak + sa->sb_req_for + 1;
-	sa->best_path_code = ft_smallest_int(try, 4);
-	return (try[sa->best_path_code]);
+	ft_bzero(attempt, sizeof(int) * 4);
+	attempt[0] = MAX(sa->mov_req_for, sa->sb_req_for) + 1;
+	attempt[1] = MAX(sa->mov_req_bak, sa->sb_req_bak) + 1;
+	attempt[2] = sa->mov_req_for + sa->sb_req_bak + 1;
+	attempt[3] = sa->mov_req_bak + sa->sb_req_for + 1;
+	sa->best_path_code = ft_smallest_int(attempt, 4);
+	return (attempt[sa->best_path_code]);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:03:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/09 17:08:30 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 16:37:30 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_operation		*use_rr(t_swap *selected, t_operation *op)
 	if (selected->mov_req_for > selected->sb_req_for)
 		while (i < rx)
 			op[i++] = RA;
-	else if (selected->mov_req_for < selected->sb_req_for)
+	else if (selected->mov_req_for <= selected->sb_req_for)
 		while (i < rx)
 			op[i++] = RB;
 	op[i++] = PB;
@@ -50,7 +50,7 @@ t_operation		*use_rrr(t_swap *selected, t_operation *op)
 	if (selected->mov_req_bak > selected->sb_req_bak)
 		while (i < rx)
 			op[i++] = RRA;
-	else if (selected->mov_req_bak < selected->sb_req_bak)
+	else if (selected->mov_req_bak <= selected->sb_req_bak)
 		while (i < rx)
 			op[i++] = RRB;
 	op[i++] = PB;

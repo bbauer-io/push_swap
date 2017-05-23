@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/09 15:37:22 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/23 15:59:24 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCF = arg_string_splitter.c \
 		build_instructions.c \
 		calculate_possible_moves.c \
 		crappy_temp_print_stack.c \
+		create_b_value_array.c \
 		debug_log_operations.c \
 		debug_print_stacks.c \
 		duplicate_input_check.c \
@@ -33,6 +34,7 @@ SRCF = arg_string_splitter.c \
 		print_output.c \
 		push_swap_main.c \
 		read_input.c \
+		rotate_largest_to_top.c \
 		sort_stacks.c \
 		stack_tools.c \
 

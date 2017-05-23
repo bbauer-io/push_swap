@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/09 15:28:54 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 15:59:05 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void			calculate_possible_moves(t_swap *sa, t_swap *sb,
 													t_tracker *tracker);
 t_swap			*find_best_candidate(t_swap *sa);
 t_operation		*build_instructions(t_swap *best_candidate, t_operation *ops);
+int				*create_b_value_array(t_swap *stack, t_tracker *tracker,
+													int **b_val_arr);
+void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
+										t_tracker *tracker, t_operation op);
 
 /*
 ** Tools
@@ -67,6 +71,8 @@ void			print_op_code(int code);
 void			print_output(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			stack_append(t_swap **stack, t_swap *to_add);
 int				stack_length(t_swap *stack);
+void			rotate_largest_to_top(t_swap **sa, t_swap **sb,
+										t_tracker *tracker);
 
 /*
 ** Basic operations

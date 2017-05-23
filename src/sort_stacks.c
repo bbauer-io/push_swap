@@ -6,13 +6,13 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 09:52:52 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/05 15:02:04 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 15:59:14 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void		execute_instruction(t_swap **stack_a, t_swap **stack_b,
+void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
 										t_tracker *tracker, t_operation op)
 {
 	if (op == SA)
@@ -49,6 +49,7 @@ static void		complete_sort(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	t_operation		*ops;
 	int				i;
 
+	rotate_largest_to_top(sa, sb, tracker);
 	ops = (t_operation *)malloc(sizeof(t_operation) * (tracker->input_cnt + 1));
 	i = 0;
 	while (i < tracker->input_cnt)
