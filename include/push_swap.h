@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 10:58:25 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 12:25:05 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ typedef struct	s_tracker
 */
 
 t_swap			*read_input(char **av, t_tracker *tracker);
+void			bubble_sort_stacks(t_swap **sa, t_swap **sb,
+										t_tracker *tracker);
 void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			sort_small_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			calculate_possible_moves(t_swap *sa, t_swap *sb,
-													t_tracker *tracker);
+										t_tracker *tracker);
 void			calculate_possible_rev_moves(t_swap *sa, t_swap *sb,
-													t_tracker *tracker);
+										t_tracker *tracker);
 t_swap			*find_best_candidate(t_swap *sa);
 t_operation		*build_instructions(t_swap *best_candidate, t_operation *ops);
 void			execute_instruction(t_swap **stack_a, t_swap **stack_b,

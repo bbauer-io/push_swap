@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/24 11:07:55 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/24 12:25:38 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ DEBUGFLAGS =  -fsanitize=address -g
 LEAKCHECKFLAGS = -g
 SRCF = arg_string_splitter.c \
 		basic_operations.c \
+		bubble_sort_stacks.c \
 		build_instructions.c \
 		calculate_possible_moves.c \
 		calculate_possible_rev_moves.c \
