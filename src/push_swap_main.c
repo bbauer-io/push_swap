@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:28:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 12:31:32 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 12:39:59 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,9 @@
 ** based on the number of integers on the stack.
 */
 
-void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
+static void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
-	int			stack_len;
-
-	stack_len = stack_length(*sa);
-//	if (stack_len < 4)
-//		sort_small_stacks(sa, sb, tracker);
-	if (stack_len < 8)
+	if (stack_length(*sa) < 8)
 		bubble_sort_stacks(sa, sb, tracker);
 	else
 		sort_stacks(sa, sb, tracker);
@@ -34,7 +29,7 @@ void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
 ** Ah, main: the beginning of everything.
 */
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_swap		*sa;
 	t_swap		*sb;
