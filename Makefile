@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/23 22:32:01 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/24 11:07:55 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCF = arg_string_splitter.c \
 		basic_operations.c \
 		build_instructions.c \
 		calculate_possible_moves.c \
-		create_b_value_array.c \
+		calculate_possible_rev_moves.c \
 		debug_log_operations.c \
 		debug_print_stacks.c \
 		duplicate_input_check.c \
@@ -33,7 +33,9 @@ SRCF = arg_string_splitter.c \
 		print_output.c \
 		read_input.c \
 		rotate_largest_to_top.c \
+		rotate_smallest_to_top.c \
 		sort_stacks.c \
+		sort_small_stacks.c \
 		stack_tools.c \
 
 CMAINSRC = checker_main.c
@@ -87,6 +89,10 @@ clean:
 	@rm -rf push_swap_debug.dSYM
 	@rm -f push_swap_leakcheck
 	@rm -rf push_swap_leakcheck.dSYM
+	@rm -f checker_debug
+	@rm -rf checker_debug.dSYM
+	@rm -f checker_leakcheck
+	@rm -rf checker_leakcheck.dSYM
 	@make -C $(LIBDIR) clean
 	@make -C $(FTPFDIR) clean
 
@@ -100,10 +106,10 @@ re: fclean all
 
 debug: $(LIBFT) $(FT_PRINTF)
 	@echo "Compiling push_swap with debugging options"
-	$(CC) $(CFLAGS) $(SRC) $(CMAINSRC) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS) -o checker_debug
-	$(CC) $(CFLAGS) $(SRC) $(PSMAINSRC) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS) -o push_swap_debug
+	$(CC) $(CFLAGS) $(SRC) $(CMAIN) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS) -o checker_debug
+	$(CC) $(CFLAGS) $(SRC) $(PSMAIN) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(DEBUGFLAGS) -o push_swap_debug
 
 leakcheck: $(LIBFT) $(FT_PRINTF)
 	@echo "Compiling push_swap for leak checks with valgrind"
-	$(CC) $(CFLAGS) $(SRC) $(CMAINSRC) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS) -o checker_leakcheck
-	$(CC) $(CFLAGS) $(SRC) $(PSMAINSRC) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS) -o push_swap_leakcheck
+	$(CC) $(CFLAGS) $(SRC) $(CMAIN) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS) -o checker_leakcheck
+	$(CC) $(CFLAGS) $(SRC) $(PSMAIN) $(FT_PRINTF) $(LIBFT) -I$(INCDIR) $(LEAKCHECKFLAGS) -o push_swap_leakcheck

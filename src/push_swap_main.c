@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:28:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 21:16:25 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 08:33:18 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
 
 	stack_len = stack_length(*sa);
 //	if (stack_len < 4)
-//
-//	if (stack_len < 8)
-//
-//	else
+//		sort_tiny_stacks(sa, sb, tracker)
+	if (stack_len < 6)
+		sort_small_stacks(sa, sb, tracker);
+	else
 		sort_stacks(sa, sb, tracker);
 }
 
