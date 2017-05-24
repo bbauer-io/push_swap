@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 08:11:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 19:38:51 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 23:01:18 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void		sb(t_swap **sa, t_swap **sb, t_tracker *tracker)
 }
 
 /*
-** swaps the first 2 elements at the stop of stack a, and the first 2 at top of ** stack b.
+** swaps the first 2 elements at the stop of stack a, and the first 2 at top of
+** stack b.
 */
 
 void		ss(t_swap **sa, t_swap **sb, t_tracker *tracker)

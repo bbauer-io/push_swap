@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:48:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 19:35:18 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 22:59:04 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			stack_length(t_swap *stack)
 	if (stack)
 	{
 		i++;
-		while(stack->next)
+		while (stack->next)
 		{
 			stack = stack->next;
 			i++;

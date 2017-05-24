@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 21:38:42 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 22:39:52 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 22:59:55 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Parses input and matches it to an operation code.
 */
 
-static t_operation		match_operation(char *line)
+static t_operation	match_operation(char *line)
 {
 	if (ft_strequ(line, "sa"))
 		return (SA);

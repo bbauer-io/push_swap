@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:00:24 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 20:14:30 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 23:00:31 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 char		*opcode_to_str(t_operation code)
 {
 	if (code == SA)
-		return(ft_strdup("sa"));
+		return (ft_strdup("sa"));
 	else if (code == SB)
-		return(ft_strdup("sb"));
+		return (ft_strdup("sb"));
 	else if (code == SS)
-		return(ft_strdup("ss"));
+		return (ft_strdup("ss"));
 	else if (code == PA)
-		return(ft_strdup("pa"));
+		return (ft_strdup("pa"));
 	else if (code == PB)
-		return(ft_strdup("pb"));
+		return (ft_strdup("pb"));
 	else if (code == RA)
-		return(ft_strdup("ra"));
+		return (ft_strdup("ra"));
 	else if (code == RB)
-		return(ft_strdup("rb"));
+		return (ft_strdup("rb"));
 	else if (code == RR)
-		return(ft_strdup("rr"));
+		return (ft_strdup("rr"));
 	else if (code == RRA)
-		return(ft_strdup("rra"));
+		return (ft_strdup("rra"));
 	else if (code == RRB)
-		return(ft_strdup("rrb"));
+		return (ft_strdup("rrb"));
 	else if (code == RRR)
-		return(ft_strdup("rrr"));
+		return (ft_strdup("rrr"));
 	else
-		return(ft_strdup("ERROR"));
+		return (ft_strdup("ERROR"));
 }
 
 void		print_stacks(t_swap *sa, t_swap *sb, t_tracker *tracker)

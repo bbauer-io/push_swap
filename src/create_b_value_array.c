@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 09:02:54 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 20:51:33 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 23:04:24 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	*populate_b_vals(t_swap *stack, int sm_index, int *b_val_arr)
 	}
 	stack = stack_begin;
 	i = 0;
-	if (sm_index ==  0)
+	if (sm_index == 0)
 		b_val_arr[k] = stack->value;
 	else
 		while (i++ < sm_index)
@@ -82,4 +82,3 @@ int			*create_b_value_array(t_swap *stack, t_tracker *tracker,
 	}
 	return (populate_b_vals(stack_begin, sm_index, *b_val_arr));
 }
-

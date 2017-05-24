@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:07:33 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/05 11:08:08 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 23:03:19 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ static int			underflows(char *arg)
 ** Each argument should be an int that goes on the stack. This function checks
 ** that only a positive or negative int is in the argument and no other chars,
 ** and no misplaced chars. Returns a 1 if the argument is valid, 0 if not.
-** Also will check that the number won't overflow the int. (<9 digits or has-----
-**
+** Also will check that the number won't overflow the int.
 */
 
 static int			is_valid_input(char *arg)

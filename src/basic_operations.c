@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 08:05:26 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 09:54:20 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 23:01:47 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void		rotate_backward(t_swap **stack)
 {
 	t_swap		*tmp;
 	t_swap		*iter;
-	
+
 	if (stack_length(*stack) < 2)
 		return ;
 	tmp = *stack;

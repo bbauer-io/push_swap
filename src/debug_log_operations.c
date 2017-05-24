@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:42:59 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 21:06:43 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 22:58:50 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			log_operation(int current_op, t_tracker *tracker)
 	stack_append(&(tracker->op_log), new_op);
 }
 
-void		print_log(t_swap *sa, t_tracker *tracker)
+void			print_log(t_swap *sa, t_tracker *tracker)
 {
 	t_swap		*log;
 
@@ -38,5 +38,4 @@ void		print_log(t_swap *sa, t_tracker *tracker)
 		ft_putstr("write a better algorithm you fucking amateur >:(\n");
 	else
 		ft_putstr("sorted!\n");
-
 }
