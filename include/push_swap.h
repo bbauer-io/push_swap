@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 12:25:05 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 13:35:21 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
 */
 
 char			**arg_string_splitter(char **argv);
+int				*create_a_value_array(t_swap *stack, int **a_val_arr);
 int				has_duplicate_inputs(t_swap *stack);
 int				is_sorted(t_swap *sa);
 int				is_valid(char *arg);

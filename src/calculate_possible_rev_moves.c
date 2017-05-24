@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 11:37:36 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 13:34:04 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	fill_tmp_arr_values(t_swap *stack, int *tmp_arr)
 ** largest.
 */
 
-static int	*create_a_value_array(t_swap *stack, int **a_val_arr)
+int			*create_a_value_array(t_swap *stack, int **a_val_arr)
 {
 	int		i;
 	int		k;
