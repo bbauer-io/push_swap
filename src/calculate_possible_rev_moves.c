@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 11:05:50 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 11:37:36 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static int	*create_a_value_array(t_swap *stack, int **a_val_arr)
 	return (*a_val_arr);
 }
 
-
 /*
 ** Finds the values that should precede and follow the current value when it is
 ** inserted into the list.
@@ -68,16 +67,14 @@ static int	*create_a_value_array(t_swap *stack, int **a_val_arr)
 static void	find_next(int value, int *after, int *a_arr, int a_len)
 {
 	int		i;
-	int		largest;
 
 	i = 0;
-	largest = a_arr[a_len - 1];
-	if (value > largest)
+	if (value > a_arr[a_len - 1])
 		*after = a_arr[0];
 	else
 	{
 		i = 0;
-		while (a_arr[i] < value)
+		while (value > a_arr[i])
 			i++;
 		*after = a_arr[i];
 	}

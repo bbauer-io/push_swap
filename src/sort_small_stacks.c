@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 08:34:17 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 10:57:55 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 11:48:32 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void			convert_instructions(t_operation *instructions)
 	{
 		if (*instructions == RA)
 			*instructions = RB;
-		if (*instructions == RB)
+		else if (*instructions == RB)
 			*instructions = RA;
-		if (*instructions == RRB)
+		else if (*instructions == RRB)
 			*instructions = RRA;
-		if (*instructions == RRA)
+		else if (*instructions == RRA)
 			*instructions = RRB;
-		if (*instructions == PB)
+		else if (*instructions == PB)
 			*instructions = PA;
 		instructions++;
 	}
