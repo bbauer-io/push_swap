@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 16:03:39 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 17:04:59 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,21 @@
 ** inserted into the list.
 */
 
-static void	find_next_and_prev(int value, int *before, int *after, int *b_arr,
-																	int b_len)
+static void	find_next(int value, int *after, int *b_arr, int b_len)
 {
 	int		i;
-	int		smallest;
+	int		largest;
 
 	i = 0;
-	smallest = b_arr[0];
-	if (value > b_arr[b_len - 1])
-	{
+	largest = b_arr[b_len - 1];
+	if (value > largest)
 		*after = b_arr[0];
-		*before = b_arr[b_len - 1];
-	}
-	else if (value < smallest)
-	{
-		*after = b_arr[b_len - 1];
-		*before = b_arr[0];
-	}
 	else
 	{
 		i = 0;
-		while (b_arr[i] > value)
+		while (b_arr[i] < value)
 			i++;
 		*after = b_arr[i];
-		*before = i > 0 ? b_arr[i - 1] : b_arr[b_len - 1];
 	}
 }
 
@@ -53,16 +43,12 @@ static void	find_next_and_prev(int value, int *before, int *after, int *b_arr,
 static int	find_sb_target_depth(int value, t_swap *sb, int *b_arr, int b_len)
 {
 	int		target_depth;
-	int		before;
 	int		after;
 
 	if (b_arr && b_len > 1)
-		find_next_and_prev(value, &before, &after, b_arr, b_len);
+		find_next(value, &after, b_arr, b_len);
 	else if (b_arr)
-	{
-		before = b_arr[0];
-		after = before;
-	}
+		after = b_arr[0];
 	target_depth = 0;
 	while (sb)
 	{
@@ -89,7 +75,7 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 	tracker->a_height = stack_length(sa);
 	tracker->b_height = stack_length(sb);
 	b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
-	// DEBUG CODE FOLLOWS (6 LINES)
+	// DEBUG CODE FOLLOWS (6 LINES) --DELETE BEFORE SUBMISSION
 	if (!ft_ints_are_sorted(b_vals_in_order, tracker->b_height))
 	{
 		ft_putstr("ERROR DETECTED: BAD SORTING: ");
