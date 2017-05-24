@@ -6,11 +6,15 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 09:52:52 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 20:58:02 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 22:12:41 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** Executes the appropriate instruction based on which op_code is presented.
+*/
 
 void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
 										t_tracker *tracker, t_operation op)

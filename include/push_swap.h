@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 21:07:21 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 22:35:46 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_tracker
 	int				b_height;
 	int				debug;
 	int				color;
+	int				silence;
 	int				input_cnt;
 	size_t			counter;
 	t_swap			*op_log;

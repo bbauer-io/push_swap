@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:35:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/04/29 19:36:06 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 22:35:28 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		print_output(t_swap **sa, t_swap **sb, t_tracker *tracker)
 		log_operation(tracker->current_operation, tracker);
 		print_stacks(*sa, *sb, tracker);
 	}
-	else
+	else if (!tracker->silence)
 		print_op_code(tracker->current_operation);
 }
 
