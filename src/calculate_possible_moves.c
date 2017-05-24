@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 17:04:59 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 20:52:16 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@
 static void	find_next(int value, int *after, int *b_arr, int b_len)
 {
 	int		i;
-	int		largest;
+	int		smallest;
 
 	i = 0;
-	largest = b_arr[b_len - 1];
-	if (value > largest)
+	smallest = b_arr[b_len - 1];
+	if (value < smallest)
 		*after = b_arr[0];
 	else
 	{
 		i = 0;
-		while (b_arr[i] < value)
+		while (b_arr[i] > value)
 			i++;
 		*after = b_arr[i];
 	}
@@ -60,6 +60,13 @@ static int	find_sb_target_depth(int value, t_swap *sb, int *b_arr, int b_len)
 	return (target_depth);
 }
 
+static void		badsorT(int *b_vals_in_order, t_tracker *tracker, t_swap *sb)
+{
+	ft_putstr("ERROR DETECTED: BAD SORTING: ");
+	ft_print_arr(b_vals_in_order, tracker->b_height);
+	b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
+}
+
 /*
 ** This function calculates how much stacks a and/or b will have to rotate to
 ** before inserting any given piece while keeping b sorted.
@@ -75,17 +82,14 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 	tracker->a_height = stack_length(sa);
 	tracker->b_height = stack_length(sb);
 	b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
-	// DEBUG CODE FOLLOWS (6 LINES) --DELETE BEFORE SUBMISSION
-	if (!ft_ints_are_sorted(b_vals_in_order, tracker->b_height))
-	{
-		ft_putstr("ERROR DETECTED: BAD SORTING: ");
-		ft_print_arr(b_vals_in_order, tracker->b_height);
-		b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
-	}
+	// DEBUG CODE FOLLOWS (2 LINES + FUNCTION)
+	if (!ft_ints_are_rev_sorted(b_vals_in_order, tracker->b_height))
+		badsorT(b_vals_in_order, tracker, sb);
 	while (sa)
 	{
 		sa->mov_req_for = a_cur_depth;
-		sa->mov_req_bak = tracker->a_height - a_cur_depth;
+		sa->mov_req_bak =
+				tracker->a_height == 1 ? 0 : tracker->a_height - a_cur_depth;
 		b_target_depth = find_sb_target_depth(sa->value, sb, b_vals_in_order,
 															tracker->b_height);
 		sa->sb_req_for = b_target_depth;
@@ -95,6 +99,3 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 	}
 	free(b_vals_in_order);
 }
-
-//		sa->sb_req_for = b_target_depth == tracker->b_height ? 0 : b_target_depth;
-//		sa->sb_req_bak = sa->sb_req_for == 0 ? 0 : tracker->b_height - b_target_depth;

@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 09:52:52 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 15:59:14 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 20:58:02 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,4 @@ void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker)
 		complete_sort(sa, sb, tracker);
 	else
 		ft_putstr("error! sort_stacks() failed! :(\n");
-	if (!is_sorted(*sa))
-		ft_putstr("write a better algorithm you fucking amateur >:(\n");
-	else
-		ft_putstr("sorted!");
 }

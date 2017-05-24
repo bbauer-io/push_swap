@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 09:02:54 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 13:34:07 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 20:51:33 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** the values to the newly created array.
 */
 
-static int	*populate_b_vals(t_swap *stack, int lg_index, int *b_val_arr)
+static int	*populate_b_vals(t_swap *stack, int sm_index, int *b_val_arr)
 {
 	t_swap	*stack_begin;
 	int		i;
@@ -25,10 +25,10 @@ static int	*populate_b_vals(t_swap *stack, int lg_index, int *b_val_arr)
 
 	i = 0;
 	stack_begin = stack;
-	if (lg_index == 0)
+	if (sm_index == 0)
 		stack = stack->next;
 	else
-		while (i++ < lg_index)
+		while (i++ < sm_index)
 			stack = stack->next;
 	k = 0;
 	while (stack)
@@ -38,10 +38,10 @@ static int	*populate_b_vals(t_swap *stack, int lg_index, int *b_val_arr)
 	}
 	stack = stack_begin;
 	i = 0;
-	if (lg_index ==  0)
+	if (sm_index ==  0)
 		b_val_arr[k] = stack->value;
 	else
-		while (i++ < lg_index)
+		while (i++ < sm_index)
 		{
 			b_val_arr[k++] = stack->value;
 			stack = stack->next;
@@ -59,27 +59,27 @@ int			*create_b_value_array(t_swap *stack, t_tracker *tracker,
 {
 	t_swap	*stack_begin;
 	int		i;
-	int		lg_index;
-	int		largest;
+	int		sm_index;
+	int		smallest;
 
 	if (!stack ||
 		!(*b_val_arr = (int *)malloc(sizeof(int) * (tracker->b_height + 1))))
 		return (NULL);
 	ft_bzero(*b_val_arr, (sizeof(int) * (tracker->b_height + 1)));
 	i = 0;
-	lg_index = 0;
-	largest = stack->value;
+	sm_index = 0;
+	smallest = stack->value;
 	stack_begin = stack;
 	while (stack)
 	{
 		i++;
-		if (stack->value > largest)
+		if (stack->value < smallest)
 		{
-			largest = stack->value;
-			lg_index = i;
+			smallest = stack->value;
+			sm_index = i;
 		}
 		stack = stack->next;
 	}
-	return (populate_b_vals(stack_begin, lg_index, *b_val_arr));
+	return (populate_b_vals(stack_begin, sm_index, *b_val_arr));
 }
 

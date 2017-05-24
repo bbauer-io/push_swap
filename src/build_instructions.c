@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 15:03:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 16:37:30 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 18:12:58 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ t_operation		*use_rr(t_swap *selected, t_operation *op)
 {
 	int			i;
 	int			rx;
+	int			rx_diff;
 
 	i = 0;
 	op = (t_operation *)malloc(sizeof(t_operation) * (selected->moves_req + 1));
-	rx = MAX(selected->mov_req_for, selected->sb_req_for) -
-				MIN(selected->mov_req_for, selected->sb_req_for);
+	rx_diff = MAX(selected->mov_req_for, selected->sb_req_for) -
+					MIN(selected->mov_req_for, selected->sb_req_for);
+	rx = MAX(selected->mov_req_for, selected->sb_req_for) - rx_diff;
 	while (i < rx)
 		op[i++] = RR;
 	rx = MAX(selected->mov_req_for, selected->sb_req_for);
@@ -39,11 +41,13 @@ t_operation		*use_rrr(t_swap *selected, t_operation *op)
 {
 	int			i;
 	int			rx;
+	int			rx_diff;
 
 	i = 0;
 	op = (t_operation *)malloc(sizeof(t_operation) * (selected->moves_req + 1));
-	rx = MAX(selected->mov_req_bak, selected->sb_req_bak) -
-				MIN(selected->mov_req_bak, selected->sb_req_bak);
+	rx_diff = MAX(selected->mov_req_bak, selected->sb_req_bak) -
+					MIN(selected->mov_req_bak, selected->sb_req_bak);
+	rx = MAX(selected->mov_req_bak, selected->sb_req_bak) - rx_diff;
 	while (i < rx)
 		op[i++] = RRR;
 	rx = MAX(selected->mov_req_bak, selected->sb_req_bak);

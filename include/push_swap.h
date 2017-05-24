@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 15:59:05 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 21:07:21 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
 
 char			**arg_string_splitter(char **argv);
 int				has_duplicate_inputs(t_swap *stack);
+int				is_sorted(t_swap *sa);
 int				is_valid(char *arg);
 void			print_op_code(int code);
 void			print_output(t_swap **sa, t_swap **sb, t_tracker *tracker);
@@ -104,9 +105,8 @@ void			rrr(t_swap **sa, t_swap **sb, t_tracker *tracker);
 ** Debug / verbose option functions
 */
 
-void			print_stack(t_swap *stack);
 void			print_stacks(t_swap *sa, t_swap *sb, t_tracker *tracker);
-void			print_log(t_tracker *tracker);
+void			print_log(t_swap *sa, t_tracker *tracker);
 void			log_operation(int current_op, t_tracker *tracker);
 
 #endif

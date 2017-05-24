@@ -6,11 +6,33 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:28:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/09 15:36:54 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/23 21:16:25 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** this funciton chooses the sorting algorithm which will be most effective
+** based on the number of integers on the stack.
+*/
+
+void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
+{
+	int			stack_len;
+
+	stack_len = stack_length(*sa);
+//	if (stack_len < 4)
+//
+//	if (stack_len < 8)
+//
+//	else
+		sort_stacks(sa, sb, tracker);
+}
+
+/*
+** Ah, main: the beginning of everything.
+*/
 
 int			main(int argc, char **argv)
 {
@@ -28,10 +50,9 @@ int			main(int argc, char **argv)
 			sa = read_input(argv, &tracker);
 		if (!has_duplicate_inputs(sa))
 		{
-			print_stack(sa);
-			sort_stacks(&sa, &sb, &tracker);
+			sort_selection(&sa, &sb, &tracker);
 			if (tracker.debug)
-				print_log(&tracker);
+				print_log(sa, &tracker);
 			if (alt_argv)
 				ft_tab_del(&alt_argv);
 		}
