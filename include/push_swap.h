@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 13:35:21 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 17:18:28 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct	s_tracker
 */
 
 t_swap			*read_input(char **av, t_tracker *tracker);
-void			bubble_sort_stacks(t_swap **sa, t_swap **sb,
+void			bubbly_sort_stacks(t_swap **sa, t_swap **sb,
 										t_tracker *tracker);
 void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			sort_small_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);

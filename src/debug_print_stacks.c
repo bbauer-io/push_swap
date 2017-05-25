@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:00:24 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 23:00:31 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 15:15:01 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char		*opcode_to_str(t_operation code)
 	else if (code == RRR)
 		return (ft_strdup("rrr"));
 	else
-		return (ft_strdup("ERROR"));
+		return (ft_strdup("BGN"));
 }
 
 void		print_stacks(t_swap *sa, t_swap *sb, t_tracker *tracker)

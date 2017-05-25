@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:28:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 12:39:59 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 17:19:01 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 static void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
 	if (stack_length(*sa) < 8)
-		bubble_sort_stacks(sa, sb, tracker);
+		bubbly_sort_stacks(sa, sb, tracker);
 	else
 		sort_stacks(sa, sb, tracker);
 }
@@ -45,6 +45,9 @@ int				main(int argc, char **argv)
 			sa = read_input(argv, &tracker);
 		if (!has_duplicate_inputs(sa))
 		{
+			sb = NULL;
+			if (tracker.debug)
+				print_stacks(sa, sb, &tracker);
 			sort_selection(&sa, &sb, &tracker);
 			if (tracker.debug)
 				print_log(sa, &tracker);

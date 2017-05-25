@@ -6,11 +6,18 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 14:14:11 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 10:04:46 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 17:28:26 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*
+** Compares the 4 different directions we could rotate the stacks:
+** Both going forward, both in reverse, A forward and B in reverse,
+** or A in reverse and B forward. Returns a "best path code" so that later
+** functions will know which instructions to run for optimal results.
+*/
 
 static int	calc_shortest_possible_route(t_swap *sa)
 {
