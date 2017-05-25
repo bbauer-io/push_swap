@@ -6,83 +6,37 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 17:42:11 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:03:58 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*
-** create_b_value_array finds the start point in the list, this function copys
-** the values to the newly created array.
-*/
-
-static int	*populate_b_vals(t_swap *stack, int sm_index, int *b_val_arr)
-{
-	t_swap	*stack_begin;
-	int		i;
-	int		k;
-
-	i = 0;
-	stack_begin = stack;
-	if (sm_index == 0)
-		stack = stack->next;
-	else
-		while (i++ < sm_index)
-			stack = stack->next;
-	k = 0;
-	while (stack)
-	{
-		b_val_arr[k++] = stack->value;
-		stack = stack->next;
-	}
-	stack = stack_begin;
-	i = 0;
-	if (sm_index == 0)
-		b_val_arr[k] = stack->value;
-	else
-		while (i++ < sm_index)
-		{
-			b_val_arr[k++] = stack->value;
-			stack = stack->next;
-		}
-	return (b_val_arr);
-}
-
-/*
 ** creates a list of the values in b, starting from the largest so we can easily
 ** search for the location to insert our next possible operation.
 */
 
-static int	*create_b_value_array(t_swap *stack, t_tracker *tracker,
-																int **b_val_arr)
+static int	*create_b_value_array(t_swap *stack, int **a_val_arr)
 {
-	t_swap	*stack_begin;
 	int		i;
-	int		sm_index;
-	int		smallest;
+	int		stack_len;
+	int		*tmp_arr;
 
-	if (!stack ||
-		!(*b_val_arr = (int *)malloc(sizeof(int) * (tracker->b_height + 1))))
+	stack_len = stack_length(stack);
+	if (!stack || !(tmp_arr = (int *)malloc(sizeof(int) * stack_len)))
 		return (NULL);
-	ft_bzero(*b_val_arr, (sizeof(int) * (tracker->b_height + 1)));
+	ft_bzero(tmp_arr, sizeof(int) * stack_len);
 	i = 0;
-	sm_index = 0;
-	smallest = stack->value;
-	stack_begin = stack;
 	while (stack)
 	{
-		i++;
-		if (stack->value < smallest)
-		{
-			smallest = stack->value;
-			sm_index = i;
-		}
+		tmp_arr[i++] = stack->value;
 		stack = stack->next;
 	}
-	return (populate_b_vals(stack_begin, sm_index, *b_val_arr));
+	*a_val_arr = ft_int_sort_rev(tmp_arr, stack_len);
+	ft_print_arr(*a_val_arr, stack_len);
+	return (*a_val_arr);
 }
-
 /*
 ** Finds the values that should precede and follow the current value when it is
 ** inserted into the list.
@@ -145,9 +99,7 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 	a_cur_depth = 0;
 	tracker->a_height = stack_length(sa);
 	tracker->b_height = stack_length(sb);
-	b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
-	/////
-	ft_print_arr(b_vals_in_order, tracker->b_height);
+	b_vals_in_order = create_b_value_array(sb, &b_vals_in_order);
 	while (sa)
 	{
 		sa->mov_req_for = a_cur_depth;
