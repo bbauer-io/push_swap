@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:07:33 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 22:10:24 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 22:52:20 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,35 @@ static t_swap		*invalid_input_error(t_swap *sa)
 {
 	stack_free(sa);
 	ft_putstr("Error\n");
-	return (NULL);
+	exit(EXIT_FAILURE);
+}
+
+/*
+** Mixing digits and letters in a single argument ends the program.
+*/
+
+static int			is_valid_input(char *input, t_swap *sa)
+{
+	int		i;
+
+	if (ft_isalpha(*input))
+		invalid_input_error(sa);
+	i = 0;
+	if (ft_isdigit(input[0]))
+		while (input[++i])
+			if (!ft_isdigit(input[i]))
+				invalid_input_error(sa);
+	i = 0;
+	if (input[0] == '-' && ft_isalpha(input[1]))
+		while (input[++i])
+			if (!ft_isalpha(input[i]))
+				invalid_input_error(sa);
+	i = 0;
+	if (input[0] == '-' && ft_isdigit(input[1]))
+		while (input[++i])
+			if (!ft_isdigit(input[i]))
+				invalid_input_error(sa);
+	return (1);
 }
 
 /*
@@ -62,8 +90,9 @@ t_swap				*read_input(char **av, t_tracker *tracker)
 	t_swap		*item;
 	long		tmp;
 
-	while (is_option(*av, tracker))
-		(*av)++;
+	sa = NULL;
+	while (is_valid_input(*av, sa) && is_option(*av, tracker))
+		av++;
 	sa = (t_swap *)malloc(sizeof(t_swap));
 	ft_bzero(sa, sizeof(t_swap));
 	tmp = ft_atol(*av);
@@ -71,7 +100,7 @@ t_swap				*read_input(char **av, t_tracker *tracker)
 		return (invalid_input_error(sa));
 	sa->value = tmp;
 	while (*(++av))
-		if (!is_option(*av, tracker))
+		if (!is_option(*av, tracker) && is_valid_input(*av, sa))
 		{
 			item = (t_swap *)malloc(sizeof(t_swap));
 			ft_bzero(item, sizeof(t_swap));
@@ -81,6 +110,5 @@ t_swap				*read_input(char **av, t_tracker *tracker)
 			item->value = tmp;
 			stack_append(&sa, item);
 		}
-	tracker->input_cnt = stack_length(sa);
 	return (sa);
 }

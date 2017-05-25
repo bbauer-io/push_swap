@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:28:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 21:51:53 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 22:43:53 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void		get_input(char **argv, t_swap **sa, t_tracker *tracker)
 		*sa = read_input(alt_argv, tracker);
 	else
 		*sa = read_input(argv, tracker);
+	tracker->input_cnt = stack_length(*sa);
 	if (alt_argv)
 		ft_tab_del(&alt_argv);
 }
