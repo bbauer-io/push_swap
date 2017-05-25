@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 17:40:01 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:54:37 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int				is_valid(char *arg);
 void			print_op_code(int code);
 void			print_output(t_swap **sa, t_swap **sb, t_tracker *tracker);
 void			stack_append(t_swap **stack, t_swap *to_add);
+void			stack_free(t_swap *stack);
 int				stack_length(t_swap *stack);
 void			rotate_largest_to_top(t_swap **sa, t_swap **sb,
 										t_tracker *tracker);

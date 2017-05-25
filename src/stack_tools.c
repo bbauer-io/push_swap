@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:48:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 22:59:04 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:54:07 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,21 @@ int			stack_length(t_swap *stack)
 		}
 	}
 	return (i);
+}
+
+/*
+** This function will free the remaining stack at the end of the program.
+*/
+
+void		stack_free(t_swap *stack)
+{
+	t_swap	*tmp;
+
+	tmp = stack;
+	while (stack)
+	{
+		stack = stack->next;
+		free(tmp);
+		tmp = stack;
+	}
 }

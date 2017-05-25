@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 12:05:29 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 19:52:29 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:36:43 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int				*create_a_value_array(t_swap *stack, int **a_val_arr)
 		stack = stack->next;
 	}
 	*a_val_arr = ft_int_sort(tmp_arr, stack_len);
+	free(tmp_arr);
 	return (*a_val_arr);
 }

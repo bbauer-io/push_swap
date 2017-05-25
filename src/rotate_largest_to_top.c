@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:15:17 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 15:58:49 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:35:43 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,5 @@ void			rotate_largest_to_top(t_swap **sa, t_swap **sb,
 	i = 0;
 	while (ops && ops[i])
 		execute_instruction(sa, sb, tracker, ops[i++]);
+	free(ops);
 }

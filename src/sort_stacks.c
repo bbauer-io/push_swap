@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 09:52:52 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 08:36:29 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:41:07 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void		complete_sort(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	i = 0;
 	while (ops && ops[i])
 		execute_instruction(sa, sb, tracker, ops[i++]);
+	free(ops);
 }
 
 /*
