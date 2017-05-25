@@ -6,7 +6,7 @@
 /*   By: bbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 11:53:06 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 20:33:29 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 18:19:25 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,9 @@ size_t				ft_lst_free_contents(void *content, size_t content_size);
 ** Array functions.
 */
 
+int					ft_largest_int(int *arr, int size);
 int					ft_smallest_int(int *arr, int size);
+int					*ft_int_sort(int *arr, int len);
 int					ft_ints_are_sorted(int *ints, int len);
 int					ft_ints_are_rev_sorted(int *ints, int len);
 void				ft_print_arr(int *arr, int len);

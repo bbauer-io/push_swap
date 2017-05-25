@@ -6,7 +6,7 @@
 #    By: bbauer <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/21 18:44:49 by bbauer            #+#    #+#              #
-#    Updated: 2017/05/24 12:25:38 by bbauer           ###   ########.fr        #
+#    Updated: 2017/05/24 17:44:51 by bbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,9 @@ DEBUGFLAGS =  -fsanitize=address -g
 LEAKCHECKFLAGS = -g
 SRCF = arg_string_splitter.c \
 		basic_operations.c \
-		bubble_sort_stacks.c \
+		bubbly_sort_stacks.c \
 		build_instructions.c \
 		calculate_possible_moves.c \
-		calculate_possible_rev_moves.c \
 		debug_log_operations.c \
 		debug_print_stacks.c \
 		duplicate_input_check.c \
@@ -36,7 +35,6 @@ SRCF = arg_string_splitter.c \
 		rotate_largest_to_top.c \
 		rotate_smallest_to_top.c \
 		sort_stacks.c \
-		sort_small_stacks.c \
 		stack_tools.c \
 
 CMAINSRC = checker_main.c

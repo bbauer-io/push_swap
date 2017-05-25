@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:59:13 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 17:18:28 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 17:40:01 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,19 @@ t_swap			*read_input(char **av, t_tracker *tracker);
 void			bubbly_sort_stacks(t_swap **sa, t_swap **sb,
 										t_tracker *tracker);
 void			sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void			sort_small_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker);
-void			calculate_possible_moves(t_swap *sa, t_swap *sb,
-										t_tracker *tracker);
-void			calculate_possible_rev_moves(t_swap *sa, t_swap *sb,
-										t_tracker *tracker);
-t_swap			*find_best_candidate(t_swap *sa);
 t_operation		*build_instructions(t_swap *best_candidate, t_operation *ops);
-void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
-										t_tracker *tracker, t_operation op);
 
 /*
 ** Tools
 */
 
 char			**arg_string_splitter(char **argv);
+void			calculate_possible_moves(t_swap *sa, t_swap *sb,
+										t_tracker *tracker);
 int				*create_a_value_array(t_swap *stack, int **a_val_arr);
+void			execute_instruction(t_swap **stack_a, t_swap **stack_b,
+										t_tracker *tracker, t_operation op);
+t_swap			*find_best_candidate(t_swap *sa);
 int				has_duplicate_inputs(t_swap *stack);
 int				is_sorted(t_swap *sa);
 int				is_valid(char *arg);

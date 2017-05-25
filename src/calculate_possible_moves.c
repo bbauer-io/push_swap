@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 09:07:22 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 17:42:11 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,8 @@ void		calculate_possible_moves(t_swap *sa, t_swap *sb, t_tracker *tracker)
 	tracker->a_height = stack_length(sa);
 	tracker->b_height = stack_length(sb);
 	b_vals_in_order = create_b_value_array(sb, tracker, &b_vals_in_order);
+	/////
+	ft_print_arr(b_vals_in_order, tracker->b_height);
 	while (sa)
 	{
 		sa->mov_req_for = a_cur_depth;
