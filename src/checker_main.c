@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 21:38:42 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 22:59:55 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/25 10:54:50 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ static void			do_operations(t_swap **sa, t_swap **sb, t_tracker *tracker)
 	{
 		operation = match_operation(line);
 		execute_instruction(sa, sb, tracker, operation);
+	}
+	if (operation == INVALID)
+	{
+		ft_putstr("Error\n");
+		stack_free(*sa);
+		exit(0);
 	}
 }
 
