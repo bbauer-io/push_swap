@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:07:33 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/23 23:03:19 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:10:54 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,5 @@ t_swap				*read_input(char **av, t_tracker *tracker)
 			stack_append(&sa, item);
 		}
 	}
-	tracker->input_cnt = stack_length(sa);
 	return (sa);
 }

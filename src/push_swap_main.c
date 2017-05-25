@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 19:28:25 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 17:19:01 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:13:03 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 /*
 ** this funciton chooses the sorting algorithm which will be most effective
 ** based on the number of integers on the stack.
+** Setting the input_cnt on the tracker struct made more sense in the
+** read_input() function, but there were too many lines for the norm and it
+** didn't make sense to break it apart.
 */
 
 static void		sort_selection(t_swap **sa, t_swap **sb, t_tracker *tracker)
 {
-	if (stack_length(*sa) < 8)
+	tracker->input_cnt = stack_length(*sa);
+	if (stack_length(*sa) < 10)
 		bubbly_sort_stacks(sa, sb, tracker);
 	else
 		sort_stacks(sa, sb, tracker);

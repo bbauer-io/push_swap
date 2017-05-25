@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:18:12 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 20:03:58 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 20:05:55 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static int	*create_b_value_array(t_swap *stack, int **a_val_arr)
 	ft_print_arr(*a_val_arr, stack_len);
 	return (*a_val_arr);
 }
+
 /*
 ** Finds the values that should precede and follow the current value when it is
 ** inserted into the list.
