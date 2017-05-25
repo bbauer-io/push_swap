@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 09:07:33 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 22:52:20 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/25 11:14:21 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,24 @@ static int			is_option(char *arg, t_tracker *tracker)
 }
 
 /*
+** Creates a new t_swap item from the current *av.
+*/
+
+static t_swap		*create_list_item(char **av)
+{
+	long		tmp;
+	t_swap		*sa;
+
+	sa = (t_swap *)malloc(sizeof(t_swap));
+	ft_bzero(sa, sizeof(t_swap));
+	tmp = ft_atol(*av);
+	if (tmp > INT_MAX || tmp < INT_MIN)
+		invalid_input_error(sa);
+	sa->value = tmp;
+	return (sa);
+}
+
+/*
 ** Reads the list of argument, checks their validity, and saves each in a linked
 ** list which will represent our stack.
 */
@@ -88,26 +106,17 @@ t_swap				*read_input(char **av, t_tracker *tracker)
 {
 	t_swap		*sa;
 	t_swap		*item;
-	long		tmp;
 
 	sa = NULL;
-	while (is_valid_input(*av, sa) && is_option(*av, tracker))
+	while (av && *av && is_valid_input(*av, sa) && is_option(*av, tracker))
 		av++;
-	sa = (t_swap *)malloc(sizeof(t_swap));
-	ft_bzero(sa, sizeof(t_swap));
-	tmp = ft_atol(*av);
-	if (tmp > INT_MAX || tmp < INT_MIN)
-		return (invalid_input_error(sa));
-	sa->value = tmp;
+	if (!av || !*av)
+		return (NULL);
+	sa = create_list_item(av);
 	while (*(++av))
 		if (!is_option(*av, tracker) && is_valid_input(*av, sa))
 		{
-			item = (t_swap *)malloc(sizeof(t_swap));
-			ft_bzero(item, sizeof(t_swap));
-			tmp = ft_atol(*av);
-			if (tmp > INT_MAX || tmp < INT_MIN)
-				return (invalid_input_error(sa));
-			item->value = tmp;
+			item = create_list_item(av);
 			stack_append(&sa, item);
 		}
 	return (sa);
