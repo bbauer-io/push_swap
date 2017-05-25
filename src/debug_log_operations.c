@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 10:42:59 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 10:53:56 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 22:20:22 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ void			print_log(t_swap *sa, t_tracker *tracker)
 		ft_putstr("\e[31mKO\e[0m\n");
 	else
 		ft_putstr("\e[32mOK\e[0m\n");
+	stack_free(tracker->op_log);
 }

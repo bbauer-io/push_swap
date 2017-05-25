@@ -6,7 +6,7 @@
 /*   By: bbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 11:53:06 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 18:54:20 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/24 21:33:55 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ int					ft_tolower(int c);
 */
 
 int					ft_atoi(char const *str);
+long				ft_atol(char const *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
 
