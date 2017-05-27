@@ -6,7 +6,7 @@
 /*   By: bbauer <bbauer@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 12:05:29 by bbauer            #+#    #+#             */
-/*   Updated: 2017/05/24 20:36:43 by bbauer           ###   ########.fr       */
+/*   Updated: 2017/05/27 12:22:44 by bbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void			bubbly_sort_stacks(t_swap **sa, t_swap **sb, t_tracker *tracker)
 		sm = tmp_arr[ft_smallest_int(create_a_value_array(*sa, &tmp_arr), sl)];
 		free(tmp_arr);
 		if (sm == (*sa)->value)
+		{
 			execute_instruction(sa, sb, tracker, PB);
+			sl = stack_length(*sa);
+		}
 		else if ((*sa)->value > (*sa)->next->value)
 			execute_instruction(sa, sb, tracker, SA);
 		else
